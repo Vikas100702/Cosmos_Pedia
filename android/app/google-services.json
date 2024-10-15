@@ -12,7 +12,20 @@
           "package_name": "com.example.cosmos_pedia"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "90291641392-0ic9cmab5jj0247c8q73fjeqi3dt5oe1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.e",
+            "certificate_hash": "0afd7c407993ec252a048a753e3292ee476c81bf"
+          }
+        },
+        {
+          "client_id": "90291641392-e9m8g6tvhntnevuu9s09evphapfc10k0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCZQop_2mO7_BWmOdXhFXHXsYhSRAYBp_E"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90291641392-e9m8g6tvhntnevuu9s09evphapfc10k0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "90291641392-4hnf20hqjq45m9edpf10c09vjll8gg78.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cosmosPedia"
+              }
+            }
+          ]
         }
       }
     }
