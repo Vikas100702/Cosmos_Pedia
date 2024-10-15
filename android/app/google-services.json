@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "90291641392",
+    "project_id": "cosmospedia-39899",
+    "storage_bucket": "cosmospedia-39899.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90291641392:android:607dce7897a140a768a1f5",
+        "android_client_info": {
+          "package_name": "com.example.cosmos_pedia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZQop_2mO7_BWmOdXhFXHXsYhSRAYBp_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
