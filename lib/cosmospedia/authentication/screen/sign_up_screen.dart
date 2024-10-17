@@ -82,11 +82,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(
                   height: SizeConfig.height(10), // Add space before the logo
                 ),
-                SizedBox(
+                ClipOval( child: SizedBox(
                   width: SizeConfig.width(30),
                   height: SizeConfig.height(20),
                   child: Image.asset("assets/logo.jpeg"), // Logo
-                ),
+                ),),
+
                 SizedBox(
                   height: SizeConfig.height(2.5),
                 ),
