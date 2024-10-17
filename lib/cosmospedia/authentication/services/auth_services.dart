@@ -23,7 +23,6 @@ class AuthServices {
           password: password,
         );
         // add user to your  firestore database
-        print(cred.user!.uid);
         await _firestore.collection("users").doc(cred.user!.uid).set({
           'name': name,
           'uid': cred.user!.uid,
