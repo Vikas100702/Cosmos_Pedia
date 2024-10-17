@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cosmos_pedia/cosmospedia/authentication/sign_in_screen.dart';
+import 'package:cosmos_pedia/cosmospedia/authentication/screen/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
