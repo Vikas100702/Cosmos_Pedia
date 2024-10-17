@@ -69,7 +69,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: blackColor,
       body: SafeArea(
         child: Container(
           width: SizeConfig.screenWidth,

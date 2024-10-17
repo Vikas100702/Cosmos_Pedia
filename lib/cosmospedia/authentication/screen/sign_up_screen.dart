@@ -64,6 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return Scaffold(
+      backgroundColor: blackColor,
       body: SafeArea(
         child: Container(
           width: SizeConfig.screenWidth,
