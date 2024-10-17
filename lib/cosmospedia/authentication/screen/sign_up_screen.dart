@@ -22,41 +22,58 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   bool isLoading = false;
 
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    nameController.dispose();
+  }
+
   void signUp() async {
+    // set is loading to true.
+    setState(() {
+      isLoading = true;
+    });
+    // signup user using our authServices
     String res = await AuthServices().signUp(
-      name: nameController.text,
-      email: emailController.text,
-      password: passwordController.text,
-    );
-
-    //if signup is success, user has been created and navigate to next screen else show error message.
-    if (res == "Success") {
+        email: emailController.text,
+        password: passwordController.text,
+        name: nameController.text);
+    // if string return is success, user has been creaded and navigate to next screen other witse show error.
+    if (res == "success") {
       setState(() {
-        isLoading = true;
+        isLoading = false;
       });
-
-      //Navigate to next screen
+      customSnackBar(
+          context: context,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+              SizeConfig.devicePixelRatio(10),
+            ),
+          ),
+          behavior: SnackBarBehavior.floating,
+          text: res);
+      //navigate to the next screen
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => SignInScreen(),
+          builder: (context) => const SignInScreen(),
         ),
       );
     } else {
       setState(() {
         isLoading = false;
       });
-
-      //show error message
+      // show error
       customSnackBar(
-        context: context,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(
-            SizeConfig.devicePixelRatio(5),
+          context: context,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+              SizeConfig.devicePixelRatio(10),
+            ),
           ),
-        ),
-        behavior: SnackBarBehavior.floating,
-        text: res,
-      );
+          behavior: SnackBarBehavior.floating,
+          text: res);
     }
   }
 
@@ -115,16 +132,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: SizeConfig.height(2.5),
                 ),
                 CustomElevatedButton(
-                  buttonText: "Sign up",
-                  textSize: SizeConfig.devicePixelRatio(15),
-                  maxHeight: SizeConfig.height(5),
-                  maxWidth: SizeConfig.width(90),
-                  buttonColor: whiteColor,
-                  buttonTextColor: blackColor,
-                  onPressed: (){
-                    signUp();
-                  }
-                ),
+                    buttonText: "Sign up",
+                    textSize: SizeConfig.devicePixelRatio(15),
+                    maxHeight: SizeConfig.height(5),
+                    maxWidth: SizeConfig.width(90),
+                    buttonColor: whiteColor,
+                    buttonTextColor: blackColor,
+                    onPressed: () {
+                      signUp();
+                    }),
                 SizedBox(
                   height: SizeConfig.height(2.5),
                 ),

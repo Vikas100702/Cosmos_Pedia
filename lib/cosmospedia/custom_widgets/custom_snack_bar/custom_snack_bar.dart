@@ -7,7 +7,7 @@ customSnackBar({
   required String text,
 }) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 10),
       shape: shape,
       behavior: behavior,
       content: Text(text)));
