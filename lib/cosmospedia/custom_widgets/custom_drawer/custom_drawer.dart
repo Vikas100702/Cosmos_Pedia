@@ -12,13 +12,6 @@ Drawer customDrawer(){
           },
         ),
         ListTile(
-          leading: const Icon(Icons.language),
-          title: const Text('Language'),
-          onTap: () {
-            // Handle Settings tap
-          },
-        ),
-        ListTile(
           leading: const Icon(Icons.close),
           title: const Text('Terms & Conditions'),
           onTap: () {

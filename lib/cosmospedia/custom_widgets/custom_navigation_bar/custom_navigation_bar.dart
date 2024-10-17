@@ -14,7 +14,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   Widget build(BuildContext context) {
     return BottomAppBar(
       color: whiteColor,
-      height: SizeConfig.height(8),
+      height: SizeConfig.height(7),
       shape: const CircularNotchedRectangle(),
       notchMargin: SizeConfig.devicePixelRatio(8),
       child: Row(

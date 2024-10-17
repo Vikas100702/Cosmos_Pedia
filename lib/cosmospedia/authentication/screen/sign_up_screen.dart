@@ -69,10 +69,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Container(
           width: SizeConfig.screenWidth,
           height: SizeConfig.screenHeight,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/background.png"),
-              // Background image from assets
+              image: AssetImage("assets/background.png"), // Background image from assets
               fit: BoxFit.cover,
             ),
           ),
@@ -82,18 +81,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: SizeConfig.height(4), // Add space before the logo
+                  height: SizeConfig.height(10), // Add space before the logo
                 ),
-                ClipOval(
-                  child: SizedBox(
-                    width: SizeConfig.width(80),
-                    height: SizeConfig.height(40),
-                    child: Image.asset(
-                      "assets/logo.jpeg",
-                      fit: BoxFit.cover,
-                    ), // Logo
-                  ),
-                ),
+                ClipOval( child: SizedBox(
+                  width: SizeConfig.width(30),
+                  height: SizeConfig.height(20),
+                  child: Image.asset("assets/logo.jpeg"), // Logo
+                ),),
+
                 SizedBox(
                   height: SizeConfig.height(2.5),
                 ),
