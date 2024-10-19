@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: const CustomAppBar(), // CustomAppBar defined in a separate file
-        endDrawer: customDrawer(),
+        endDrawer: const CustomDrawer(),
         floatingActionButton: FloatingActionButton(
           backgroundColor: whiteColor,
           shape: const CircleBorder(),
