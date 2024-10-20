@@ -81,12 +81,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: SizeConfig.height(10), // Add space before the logo
+                  height: SizeConfig.height(4), // Add space before the logo
                 ),
                 ClipOval( child: SizedBox(
-                  width: SizeConfig.width(30),
-                  height: SizeConfig.height(20),
-                  child: Image.asset("assets/Blue.png"), // Logo
+                  width: SizeConfig.width(80),
+                  height: SizeConfig.height(40),
+                  child: Image.asset("assets/logo1.png"), // Logo
                 ),),
 
                 SizedBox(
