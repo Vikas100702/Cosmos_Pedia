@@ -1,3 +1,4 @@
+import 'package:cosmos_pedia/cosmospedia/authentication/forgot_password/forgot_password.dart';
 import 'package:cosmos_pedia/cosmospedia/authentication/screen/sign_up_screen.dart';
 import 'package:cosmos_pedia/cosmospedia/authentication/services/auth_services.dart';
 import 'package:cosmos_pedia/cosmospedia/custom_widgets/custom_elevated_button/custom_elevated_button.dart';
@@ -19,6 +20,7 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController forgotPasswordController = TextEditingController();
   bool isLoading = false;
 
   @override
@@ -109,6 +111,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   hintText: "Enter your email...",
                   hintFontSize: SizeConfig.devicePixelRatio(15),
                   prefixIcon: Icons.email,
+                  iconColor: whiteColor,
                 ),
                 SizedBox(
                   height: SizeConfig.height(2.5),
@@ -120,6 +123,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   hintText: "Enter your password...",
                   hintFontSize: SizeConfig.devicePixelRatio(15),
                   prefixIcon: Icons.lock,
+                  iconColor: whiteColor,
                   isObscure: true,
                 ),
                 Padding(
@@ -127,21 +131,18 @@ class _SignInScreenState extends State<SignInScreen> {
                       EdgeInsets.symmetric(horizontal: SizeConfig.width(10)),
                   child: Align(
                     alignment: Alignment.centerRight,
-                    /*child: Text(
-                      "Forgot Password?",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: whiteColor,
-                        fontSize: SizeConfig.devicePixelRatio(15),
-                      ),
-                    ),*/
                     child: CustomTextButton(
                       buttonText: "Forgot Password?",
                       textSize: SizeConfig.devicePixelRatio(15),
                       buttonColor: transparent,
                       buttonTextColor: whiteColor,
                       fontWeight: FontWeight.bold,
-                      onPressed: () {},
+                      onPressed: () {
+                        forgotPassword(
+                          context: context,
+                          forgotPasswordController: forgotPasswordController,
+                        );
+                      },
                     ),
                   ),
                 ),

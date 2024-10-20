@@ -104,6 +104,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   hintText: "Enter your name...",
                   hintFontSize: SizeConfig.devicePixelRatio(15),
                   prefixIcon: Icons.person,
+                  iconColor: whiteColor,
                 ),
                 SizedBox(
                   height: SizeConfig.height(2.5),
@@ -115,6 +116,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   hintText: "Enter your email...",
                   hintFontSize: SizeConfig.devicePixelRatio(15),
                   prefixIcon: Icons.email,
+                  iconColor: whiteColor,
                 ),
                 SizedBox(
                   height: SizeConfig.height(2.5),
@@ -126,6 +128,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   hintText: "Enter your password...",
                   hintFontSize: SizeConfig.devicePixelRatio(15),
                   prefixIcon: Icons.lock,
+                  iconColor: whiteColor,
                   isObscure: true,
                 ),
                 SizedBox(

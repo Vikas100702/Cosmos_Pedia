@@ -1,5 +1,7 @@
+import 'package:cosmos_pedia/cosmospedia/authentication/screen/sign_in_screen.dart';
 import 'package:cosmos_pedia/cosmospedia/splash_screen.dart';
 import 'package:cosmos_pedia/firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +22,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: StreamBuilder(stream: FirebaseAuth.instance.authStateChanges(), builder: (context, snapshot){
+        if(snapshot.hasData){
+          return const SplashScreen();
+        } else{
+          return const SignInScreen();
+        }
+      }),
     );
   }
 }
