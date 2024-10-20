@@ -11,6 +11,7 @@ class CustomTextFormField extends StatelessWidget {
   final String hintText;
   final bool isObscure;
   final IconData? prefixIcon;
+  final Color? iconColor;
 
   CustomTextFormField({
     super.key,
@@ -20,6 +21,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.hintText,
     required this.hintFontSize,
     required this.prefixIcon,
+    required this.iconColor,
     this.isObscure = false,
   });
 
@@ -40,7 +42,7 @@ class CustomTextFormField extends StatelessWidget {
           fillColor: whiteColor70,
           prefixIcon: Icon(
             prefixIcon,
-            color: whiteColor,
+            color: iconColor,
           ),
           contentPadding: EdgeInsets.symmetric(
             vertical: SizeConfig.height(1.5),
