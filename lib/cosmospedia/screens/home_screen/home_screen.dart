@@ -1,8 +1,10 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cosmos_pedia/cosmospedia/custom_widgets/custom_app_bar/custom_app_bar.dart';
 import 'package:cosmos_pedia/cosmospedia/custom_widgets/custom_navigation_bar/custom_navigation_bar.dart';
+import 'package:cosmos_pedia/cosmospedia/models/apod_model/apod_model.dart';
+import 'package:cosmos_pedia/cosmospedia/screens/home_screen/news/news.dart';
 import 'package:cosmos_pedia/cosmospedia/utils/constants.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_link_previewer/flutter_link_previewer.dart';
 
@@ -15,16 +17,64 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List imageList = [
-    {"id": 1, "image_path": "https://i.pinimg.com/enabled/236x/02/30/2f/02302f471262c78ad2bf5ba72ce829aa.jpg"},
-    {"id": 2, "image_path": "https://i.pinimg.com/enabled/564x/47/1c/82/471c8214aaaffff7b4ab04f9cf34a5e4.jpg"},
-    {"id": 3, "image_path": "https://i.pinimg.com/enabled/564x/f8/d6/eb/f8d6eb94847689976b3bad13bd164121.jpg"},
-    {"id": 4, "image_path": "https://i.pinimg.com/736x/53/90/20/539020cce8be5a508d1ccbac6652a5a3.jpg"},
-    {"id": 5, "image_path": "https://i.pinimg.com/736x/ed/0e/9a/ed0e9ad05f88d546a732bdc66a745d75.jpg"},
+    {
+      "id": 1,
+      "image_path":
+          "https://i.pinimg.com/enabled/236x/02/30/2f/02302f471262c78ad2bf5ba72ce829aa.jpg"
+    },
+    {
+      "id": 2,
+      "image_path":
+          "https://i.pinimg.com/enabled/564x/47/1c/82/471c8214aaaffff7b4ab04f9cf34a5e4.jpg"
+    },
+    {
+      "id": 3,
+      "image_path":
+          "https://i.pinimg.com/enabled/564x/f8/d6/eb/f8d6eb94847689976b3bad13bd164121.jpg"
+    },
+    {
+      "id": 4,
+      "image_path":
+          "https://i.pinimg.com/736x/53/90/20/539020cce8be5a508d1ccbac6652a5a3.jpg"
+    },
+    {
+      "id": 5,
+      "image_path":
+          "https://i.pinimg.com/736x/ed/0e/9a/ed0e9ad05f88d546a732bdc66a745d75.jpg"
+    },
   ];
 
-  final CarouselSliderController carouselController = CarouselSliderController();
+  final CarouselSliderController carouselController =
+      CarouselSliderController();
   int currentIndex = 0;
   dynamic _previewData;
+
+  // late Future<List<NasaApodModel>> futureApods;
+  // final Dio _dio = Dio();
+
+  /*Future<List<NasaApodModel>> fetchNasaAPOD() async {
+    const String apiUrl = "https://api.nasa.gov/planetary/apod";
+    try {
+      final response = await _dio.get(
+          "$apiUrl?api_key=heuQbPNjrbidnK2ZCmLcimZpV9zuqhTKOijozJZb&start_date=2024-09-24&end_date=2024-10-04");
+      if (response.statusCode == 200) {
+        // If the server returns a 200 OK response, parse the JSON
+        List<dynamic> data = response.data;
+        return data.map((item) => NasaApodModel.fromJson(item)).toList();
+      } else {
+        throw Exception('Failed to load APOD');
+      }
+    } catch (e) {
+      print(e);
+      return [];
+    }
+  }*/
+
+  /* @override
+  void initState() {
+    super.initState();
+    futureApods = fetchNasaAPOD();
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: const CustomAppBar(),
+        // body: News(),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -45,17 +96,18 @@ class _HomeScreenState extends State<HomeScreen> {
               CarouselSlider(
                 items: imageList
                     .map((item) => Image.network(
-                  item['image_path'],
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                ))
+                          item['image_path'],
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                        ))
                     .toList(),
                 carouselController: carouselController,
                 options: CarouselOptions(
                   scrollPhysics: BouncingScrollPhysics(),
                   aspectRatio: 2,
                   viewportFraction: 1,
-                  height: 200.0, // Set the height for the carousel
+                  height: 200.0,
+                  // Set the height for the carousel
                   autoPlay: true,
                   enlargeCenterPage: true,
                   onPageChanged: (index, reason) {
@@ -65,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-          
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: imageList.asMap().entries.map((entry) {
@@ -88,9 +140,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 }).toList(),
               ),
-          
+
               // Wrapping the LinkPreview in a Card for better UI
-              Padding(
+              /*Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Card(
                   elevation: 4,
@@ -112,7 +164,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-              )
+              )*/
+
+              News(),
             ],
           ),
         ),
@@ -125,7 +179,8 @@ class _HomeScreenState extends State<HomeScreen> {
           child: const Icon(Icons.home),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: const CustomNavigationBar(), // Custom bottom navigation bar
+        bottomNavigationBar:
+            const CustomNavigationBar(), // Custom bottom navigation bar
       ),
     );
   }

@@ -1,4 +1,4 @@
-class NasaAPOD {
+class NasaApodModel {
   String? copyright;
   String? date;
   String? explanation;
@@ -8,7 +8,7 @@ class NasaAPOD {
   String? title;
   String? url;
 
-  NasaAPOD({
+  NasaApodModel({
     this.copyright,
     this.date,
     this.explanation,
@@ -19,7 +19,7 @@ class NasaAPOD {
     this.url,
   });
 
-  NasaAPOD.fromJson(Map<String, dynamic> json) {
+  NasaApodModel.fromJson(Map<String, dynamic> json) {
     copyright = json['copyright'];
     date = json['date'];
     explanation = json['explanation'];
