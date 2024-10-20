@@ -40,6 +40,7 @@ dependencies:
   cloud_firestore: ^5.4.4
   flutter_link_previewer: ^3.2.2
   carousel_slider: ^5.0.0
+  dio: ^5.7.0
 
 dev_dependencies:
   flutter_test:
