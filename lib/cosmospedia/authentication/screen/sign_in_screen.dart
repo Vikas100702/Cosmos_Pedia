@@ -96,7 +96,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     width: SizeConfig.width(80),
                     height: SizeConfig.height(40),
                     child: Image.asset(
-                      "assets/logo.jpeg",
+                      "assets/logo1.png",
                       fit: BoxFit.cover,
                     ),
                   ),
